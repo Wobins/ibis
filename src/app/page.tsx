@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 import NavBar from '@/_components/navbar'
+import SearchBar from '@/_components/searchbar'
 
 export default function Home() {
   return (
@@ -94,6 +95,10 @@ export default function Home() {
     // </main>
     <main>
       <NavBar />
+
+      <div className="m-4">
+        <SearchBar />
+      </div>
     </main>
   )
 }
