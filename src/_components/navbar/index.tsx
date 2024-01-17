@@ -17,20 +17,33 @@ import {
     Drawer,
     ListItem,
     ListItemButton,
-    ListItemText
+    ListItemText,
+    MenuItem,
+    Menu
 } from '@mui/material';
 import { 
     Notifications,
-    Menu
 } from '@mui/icons-material';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const pages: string[]  = ["bills", "clients", "readings", "contracts"];
+const settings: string[] = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const drawerWidth = 240;
 
 const NavBar = (props: Props) => {
     const { window } = props;
     const [isLoggedIn, setIsLoggedIn] = useState(true);
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
+
+    const handleClickAccountMenu = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleCloseAccountMenu = () => {
+        setAnchorEl(null);
+    };
 
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
@@ -73,7 +86,7 @@ const NavBar = (props: Props) => {
                                     mr: 2,
                                 }}
                             >
-                                <Menu />
+                                <MenuIcon />
                             </IconButton>
                         )
                     }
@@ -111,9 +124,32 @@ const NavBar = (props: Props) => {
                                             <Notifications/>
                                         </Badge>
                                     </IconButton>
-                                    <IconButton sx={{ p: 0 }}>
-                                        <Avatar alt="Remy Sharp" src="" />
-                                    </IconButton>
+                                    <Box >
+                                        <IconButton
+                                            onClick={handleClickAccountMenu}
+                                            sx={{ p: 0 }}
+                                            aria-controls={open ? 'account-menu' : undefined}
+                                            aria-haspopup="true"
+                                            aria-expanded={open ? 'true' : undefined}
+                                        >
+                                            <Avatar alt="Remy Sharp" src="" />
+                                        </IconButton>
+                                        <Menu
+                                            anchorEl={anchorEl}
+                                            id="account-menu"
+                                            open={open}
+                                            onClose={handleCloseAccountMenu}
+                                            onClick={handleCloseAccountMenu}
+                                            transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+                                            anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+                                        >
+                                            {settings.map((setting) => (
+                                                <MenuItem key={setting} onClick={handleCloseAccountMenu}>
+                                                    <Typography textAlign="center">{setting}</Typography>
+                                                </MenuItem>
+                                            ))}
+                                        </Menu>
+                                    </Box>
 
                                 </Stack>
                             </>

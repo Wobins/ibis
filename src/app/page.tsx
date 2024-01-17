@@ -3,7 +3,7 @@ import styles from './page.module.css'
 import NavBar from '@/_components/navbar'
 import SearchBar from '@/_components/searchbar'
 
-export default function Home() {
+const Home = () => {
   return (
     // <main className={styles.main}>
     //   <div className={styles.description}>
@@ -93,12 +93,23 @@ export default function Home() {
     //     </a>
     //   </div>
     // </main>
-    <main>
-      <NavBar />
 
-      <div className="m-4">
-        <SearchBar />
-      </div>
+    <main>
+      <section className="hero-section container mx-auto">
+        <div className="hero-title text-center">
+          <h1>Check your bill</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit quae officia quas saepe sequi cupiditate animi ipsum molestias, nemo sit temporibus officiis dolore voluptatibus mollitia ut totam rem, quod aliquam.
+          </p>
+        </div>
+        <div>
+          <SearchBar />
+        </div>
+      </section>
+      <section className="details-section"></section>
     </main>
-  )
+
+  );
 }
+
+export default Home;
