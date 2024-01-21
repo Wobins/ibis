@@ -57,11 +57,11 @@ const NavBar = (props: Props) => {
             <Divider />
             <List>
                 {pages.map((item) => (
-                <ListItem key={item} disablePadding>
-                    <ListItemButton sx={{ textAlign: 'center' }}>
-                    <ListItemText primary={item} />
-                    </ListItemButton>
-                </ListItem>
+                    <ListItem key={item} disablePadding>
+                        <ListItemButton sx={{ textAlign: 'center' }} LinkComponent={Link} href={`/${item}`}>
+                        <ListItemText primary={item} />
+                        </ListItemButton>
+                    </ListItem>
                 ))}
             </List>
         </Box>
