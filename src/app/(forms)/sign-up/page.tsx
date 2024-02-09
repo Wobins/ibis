@@ -1,7 +1,8 @@
 'use client'
 
-import {useState, useEffect} from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
+import {useState, useEffect} from 'react';
 import { 
   Stack,
   Button,
@@ -20,6 +21,7 @@ import {
 } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import pic from '@/app/favicon.ico'
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -40,6 +42,17 @@ const SignUp = () => {
       <div className="grid grid-cols-12 gap-0">
         <div className="col-start-5 col-span-4">
           <div className="text-center">
+            <p className="text-center">
+
+            <Link href="/" className="text-center">
+              <Image 
+                alt="Logo" 
+                src={pic} 
+                width={50}
+                height={50}
+              />
+            </Link>
+            </p>
             <h2>Get started</h2>
             <p>Create a new account</p>
           </div>

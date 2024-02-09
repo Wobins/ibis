@@ -1,8 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
-import styles from './page.module.css'
 import { 
   Stack,
   Button,
@@ -11,7 +9,6 @@ import {
   Box,
   Typography
 } from '@mui/material'
-import NavBar from '@/_components/navbar'
 import SearchBar from '@/_components/searchbar'
 
 
