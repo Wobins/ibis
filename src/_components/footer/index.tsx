@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import {Typography} from '@mui/material';
+import './styles.css'
 
 const Footer = () => {
     return (
